@@ -1,0 +1,13 @@
+
+默认参数方法比较.
+第一行为R自带方法，且为较优参数.  
+第二行为自行编写方法.最优参数未知.
+
+> method_compare
+[[1]]
+ mse_single_R mse_bagging_R      mse_rf_R   mse_boost_R 
+     19.99505      11.69272      10.27651      11.39517 
+
+[[2]]
+  mse_singe_chen mse_bagging_chen     mse_OOB_chen      mse_rf_chen  mse_rf_OOB_chen    mse_gbdt_chen 
+        16.42359         13.08943         16.17164         18.62863         22.29385         22.64607 
