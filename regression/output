@@ -1,13 +1,42 @@
 
 默认参数方法比较.
-第一行为R自带方法，且为较优参数.  
-第二行为自行编写方法.最优参数未知.
+使用R包中MASS package 的Boston数据集。
+第一行为R自带方法，代码为"introduction to statistical learning" Tree Based Methods的源代码，原书中参数选取效果较优。  
+第二行为自行编写方法.最优参数未知，可见我的‘chooseBsetPar.r’文件，由于计算量过大，正在挂机运行中.
 
+# ============================
+以下，$mse_treeBase_R 为R 自带方法，
+mse_single_R 为单一树的结果，
+mse_bagging_R为bagging的结果，
+mse_rf_R 为randomForest的结果，
+mse_boost_R 为boosting的结果。
+
+# ============================
+$mse_treeBase_chen 为我自行编写函数的结果。
+参数含义如下： 
+tolS :容许的误差下降值 
+tolN :切分的样本最小数.这里选定1.1，即叶子结点底下只有一个数据的情况是不存在的。
+B :树的数量
+mtry :列重抽样的样本数
+threshold :gbdt的训练误差阈值
+
+mse_singe_chen ： 单一树，参数选择为 ‘tolS = 0, tolN = 1.1’
+mse_bagging_chen ：bagging, 参数选择为 ' B = 100, tolS = 0, tolN = 1.1'
+mse_OOB_chen: 基于out of bag下的bagging, 参数选择为 ' B = 100, tolS = 0, tolN = 1.1'
+mse_rf_chen：randomForest, 参数选择为 'mtry = 6, B = 400, tolS = 0, tolN = 1.1'
+mse_rf_OOB_chen: 基于out of bag下的randomForest,参数选择为 'mtry = 6, B = 400, tolS = 0, tolN = 1.1'
+mse_gbdt_chen: gradient boosting decision tree, 参数选择为 'threshold = 250, tolS = 0, tolN = 1.1'
+
+从以下结果可以看到，在最优参数未知的情况下，我自行编写的Tree based method也可以达到相当不错的效果。
+
+# ============================
 > method_compare
-[[1]]
+$mse_treeBase_R
  mse_single_R mse_bagging_R      mse_rf_R   mse_boost_R 
-     19.99505      11.69272      10.27651      11.39517 
+     23.10948      11.11427      11.42100      12.59758 
 
-[[2]]
+$mse_treeBase_chen
   mse_singe_chen mse_bagging_chen     mse_OOB_chen      mse_rf_chen  mse_rf_OOB_chen    mse_gbdt_chen 
-        16.42359         13.08943         16.17164         18.62863         22.29385         22.64607 
+        19.87781         12.50064         11.82686         14.83611         13.22137         13.06188 
+        
+ 
