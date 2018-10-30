@@ -1,8 +1,8 @@
 
 默认参数方法比较.
 使用R包中MASS package 的Boston数据集。
-第一行为R自带方法，代码为"introduction to statistical learning" Tree Based Methods的源代码，原书中参数选取效果较优。  
-第二行为自行编写方法.最优参数未知，可见我的‘chooseBsetPar.r’文件，由于计算量过大，正在挂机运行中.
+$mse_treeBase_R为R自带方法，代码为"introduction to statistical learning" Tree Based Methods的源代码，原书中参数选取效果较优。  
+$mse_treeBase_chen为自行编写方法.最优参数未知，可见我的‘chooseBsetPar.r’文件，由于计算量过大，正在挂机运行中.
 
 # ============================
 以下，$mse_treeBase_R 为R 自带方法，
